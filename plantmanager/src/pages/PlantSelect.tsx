@@ -3,7 +3,8 @@ import {
   View,
   Text,
   StyleSheet,
-  FlatList
+  FlatList,
+  ActivityIndicator
 } from 'react-native'
 
 import { EnvironmentButton } from '../components/EnvironmentButton'
@@ -39,6 +40,9 @@ export function PlantSelect() {
   const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([])
   const [environmentSelected, setEnvironmentSelected] = useState('all')
   const [isLoading, setIsLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const [isLoadedAll, setIsLoadedAll] = useState(false)
 
   function handleEnvironmentSelected(environment: string) {
     setEnvironmentSelected(environment)
@@ -52,6 +56,36 @@ export function PlantSelect() {
     ))
 
     setFilteredPlants(filtered)
+  }
+
+  async function fetchPlants() {
+    const { data } = await api
+      .get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`)
+
+    if(!data) {
+      return setIsLoading(true)
+    }
+
+    if(page > 1) {
+      setPlants(oldValue => [...oldValue, ...data]) // junta o valor do estado anterior (oldValue) com o atual
+      setFilteredPlants(oldValue => [...oldValue, ...data])
+    } else {
+      setPlants(data)
+      setFilteredPlants(data)
+    }
+
+    setIsLoading(false)
+    setIsLoadingMore(false)
+  }
+  
+  function handleFetchMore(distance: number) {
+    if(distance < 1) {
+      return
+    }
+
+    setIsLoadingMore(true)
+    setPage(oldValue => oldValue + 1)
+    fetchPlants()
   }
 
   useEffect(() => {
@@ -72,15 +106,6 @@ export function PlantSelect() {
   }, [])
 
   useEffect(() => {
-    async function fetchPlants() {
-      const { data } = await api
-        .get('plants?_sort=name&_order=asc')
-
-      setPlants(data)
-      setFilteredPlants(data)
-      setIsLoading(false)
-    }
-
     fetchPlants()
   }, [])
 
@@ -118,6 +143,15 @@ export function PlantSelect() {
           data={filteredPlants}
           showsVerticalScrollIndicator={false}
           numColumns={2}
+          onEndReachedThreshold={0.15}
+          onEndReached={({ distanceFromEnd }) => (
+            handleFetchMore(distanceFromEnd)
+          )}
+          ListFooterComponent={
+            isLoadingMore
+            ? <ActivityIndicator color={colors.green} />
+            : <></>
+          }
           renderItem={({ item }) => (
             <PlantCardPrimary data={item} />
           )}
