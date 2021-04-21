@@ -16,7 +16,7 @@ export function Header() {
     <View style={styles.container}>
       <View>
         <Text style={styles.greeting}>Olá,</Text>
-        <Text style={styles.userName}>Aloísio</Text>
+        <Text style={styles.userName}>Aloísio</Text> 
       </View>
 
       <Image source={userImg} style={styles.image} />
@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 20,
-    marginTop: getStatusBarHeight(),
-    padding: 20
+    marginTop: getStatusBarHeight()
   },
 
   image: {
