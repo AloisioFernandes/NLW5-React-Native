@@ -143,7 +143,7 @@ export function PlantSelect() {
           data={filteredPlants}
           showsVerticalScrollIndicator={false}
           numColumns={2}
-          onEndReachedThreshold={0.15}
+          onEndReachedThreshold={0.2}
           onEndReached={({ distanceFromEnd }) => (
             handleFetchMore(distanceFromEnd)
           )}
