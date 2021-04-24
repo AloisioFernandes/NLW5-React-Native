@@ -32,7 +32,7 @@ export function MyPlants() {
         { locale: pt }
       )
 
-      setNextWatered(`Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime} horas.`)
+      setNextWatered(`Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime}.`)
       setMyPlants(plantsStoraged)
       setIsLoading(false)
     }
@@ -56,7 +56,6 @@ export function MyPlants() {
           data={myPlants}
           keyExtractor={(item) => String(item.id)}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flex: 1 }}
           renderItem={({ item }) => (
             <PlantCardSecondary data={item} />
           )}
