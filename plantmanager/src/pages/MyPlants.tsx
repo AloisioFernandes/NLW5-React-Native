@@ -9,6 +9,7 @@ import {
 
 import { Header } from '../components/Header'
 import { PlantCardSecondary } from '../components/PlantCardSecondary'
+import { Load } from '../components/Load'
 
 import waterdrop from '../assets/waterdrop.png'
 import colors from '../styles/colors'
@@ -39,6 +40,10 @@ export function MyPlants() {
 
     loadStoragedData()
   }, [])
+
+  if(isLoading) {
+    return <Load />
+  }
 
   return (
     <View style={styles.container}>
