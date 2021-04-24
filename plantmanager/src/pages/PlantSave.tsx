@@ -20,7 +20,7 @@ import { Button } from '../components/Button'
 import waterdrop from '../assets/waterdrop.png'
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
-import { loadPlant, PlantProps, savePlant } from '../libs/storage'
+import { PlantProps, savePlant } from '../libs/storage'
 
 interface Params {
   plant: PlantProps
@@ -104,7 +104,7 @@ export function PlantSave() {
           <DateTimePicker 
             value={selectedDateTime}
             mode="time"
-            display="spinner"
+            display="default"
             onChange={handleChangeTime}
           />
         )}
