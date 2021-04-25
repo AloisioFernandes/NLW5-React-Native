@@ -7,3 +7,4 @@ JSON server (iniciar comando json-server ./src/services/server.json --host 10.0.
 
 loading com animação lottie
 paginação limite 8 resultados iniciais
+notificações
