@@ -1,9 +1,9 @@
 # NLW5 - Trilha React Native - Plant Manager
-Aplicação feita durante o evento Next Level Week 05 da [Rocketseat](https://rocketseat.com.br/) de 19/04/2021 - 25/04/2021. Plant Manager é um aplicativo feita em React Native com Expo para ajudar usuários a cuidar melhor de suas plantas.
+Aplicação feita durante o evento Next Level Week 05 da [Rocketseat](https://rocketseat.com.br/) de 19/04/2021 - 25/04/2021. Plant Manager é um aplicativo feito em React Native com Expo para ajudar usuários a cuidar melhor de suas plantas.
 <p>Ao abrir o aplicativo, o usuário precisa digitar seu nome para prosseguir à tela de seleção de plantas. Nessa tela é possível filtrar as plantas por tipo de ambiente. Após a planta ser escolhida, o usuário deve selecionar um horário em que ela deve ser regada. Esse mesmo horário será alertado por meio de notificações.</p>
 <p>O usuário também pode navegar para a tela "Minhas Plantas" e verificar a próxima planta a ser regada ou remover plantas selecionadas anteriormente.</p>
 
-# Aplicação
+# Aplicativo
 ## Telas Iniciais
 <p align="center">
   <img align="center" src=".github/Initial.png" alt="Initial" width="275" border="0">
@@ -79,7 +79,7 @@ Ainda na pasta plantmanager, digite o seguinte comando no terminal:
  Ao finalizar essas alterações o aplicativo poderá ser utilizado.
 
 # Principais Tecnologias
- - [Expo]((https://docs.expo.io/))
+ - [Expo](https://docs.expo.io/)
  - [React Native](https://reactnative.dev/)
  - [Axios](https://github.com/axios/axios)
  - [JSON server](https://www.npmjs.com/package/json-server) 
