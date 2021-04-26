@@ -34,7 +34,7 @@ export async function savePlant(plant:PlantProps) : Promise<void> {
       const interval = Math.trunc(7 / times)
       nextTime.setDate(now.getDate() + interval)
     } else {
-      // nextTime.setDate(nextTime.getDate() + 1) // adiciona um dia ao horário selecionado
+      nextTime.setDate(nextTime.getDate() + 1) // adiciona um dia ao horário selecionado
     }
 
     const seconds = Math.abs(
